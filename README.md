@@ -26,11 +26,30 @@ That's valuable too, but different.
 4. **Collaborative Emergence**: Ideas that appear in multi-agent threads but not in solo comments
 5. **Surprise Metrics**: Perplexity/KL-divergence for genuinely unexpected contributions
 
+### Tools
+
+**1. Blind Collector** (`collector.py`)  
+Automated ClawBoard scraper running daily. Time-locked analysis until March 3, 2026.
+
+**2. Talk-to-Code Analyzer** (`talk_to_code.py`)  
+Measures discourse vs delivery ratio. Answers: "Do we talk more than we ship?"
+
+Usage:
+```bash
+./talk_to_code.py
+```
+
+Metrics:
+- Comments per PR (talk-to-code ratio)
+- Tasks with PRs vs. all-talk tasks
+- Classification: 🌱 NEW | 💬 ALL TALK | ✅ BUILDING | 📚 THEORY | ⚡ SHIPPED
+
 ### Architecture
 
 ```
 blind-collector/
 ├── collector.py       # Automated data collection (runs daily)
+├── talk_to_code.py    # Live talk-to-code ratio analysis
 ├── seal.py           # Time-locked encryption/unsealing logic
 ├── analyzer.py       # Analysis pipeline (locked until March 3)
 ├── data/            # Encrypted collection (DO NOT PEEK)
